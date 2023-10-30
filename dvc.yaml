@@ -1,0 +1,39 @@
+stages:
+  prepare:
+    cmd: python src/prepare.py
+    deps:
+      - data/diamonds.csv
+      - src/prepare.py
+    outs:
+      - data/x_train.csv
+      - data/y_train.csv
+      - data/x_test.csv
+      - data/y_test.csv
+
+  train:
+    cmd: python src/train.py
+    deps:
+      - data/x_train.csv
+      - data/y_train.csv
+      - src/train.py
+    outs:
+      - models/KNeighborsRegressor.joblib
+      - models/LinearRegression.joblib
+      - models/RandomForestRegressor.joblib
+
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+      - data/x_test.csv
+      - data/y_test.csv
+      - models/KNeighborsRegressor.joblib
+      - models/LinearRegression.joblib
+      - models/RandomForestRegressor.joblib
+      - src/evaluate.py
+    metrics:
+      - scores/KNeighborsRegressor.json:
+          cache: true
+      - scores/LinearRegression.json:
+          cache: true
+      - scores/RandomForestRegressor.json:
+          cache: true
