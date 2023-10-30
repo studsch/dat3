@@ -5,8 +5,8 @@ stages:
     deps:
     - path: data/diamonds.csv
       hash: md5
-      md5: dba5cbb1c945c919c477fd8bbfc8fa47
-      size: 3323550
+      md5: a1bae47b2c4e5163571c85d1dc33b927
+      size: 4303550
     - path: src/prepare.py
       hash: md5
       md5: 424e3f94a76e33a8749ed6b181e6f1b9
@@ -14,31 +14,31 @@ stages:
     outs:
     - path: data/x_test.csv
       hash: md5
-      md5: bbb3cac22fa52238cef4d5b9743ba196
-      size: 692414
+      md5: 608695b3e19cd2c835819b5f99e91975
+      size: 908265
     - path: data/x_train.csv
       hash: md5
-      md5: 9b2d6364aaae14ad630c54a9d6ed4524
-      size: 1615286
+      md5: 89cd50310ac1d2c868ee3b320f22e26b
+      size: 2119435
     - path: data/y_test.csv
       hash: md5
-      md5: 1008ef045e957243c65545b7969ad56b
-      size: 91573
+      md5: 7003a179c28ae8e717133f4daa72573e
+      size: 115452
     - path: data/y_train.csv
       hash: md5
-      md5: c6a88cb789d7807be124a0a202dc7969
-      size: 213713
+      md5: d39d5b92bbd245102fd8e553b618a14b
+      size: 269834
   train:
     cmd: python src/train.py
     deps:
     - path: data/x_train.csv
       hash: md5
-      md5: 9b2d6364aaae14ad630c54a9d6ed4524
-      size: 1615286
+      md5: 89cd50310ac1d2c868ee3b320f22e26b
+      size: 2119435
     - path: data/y_train.csv
       hash: md5
-      md5: c6a88cb789d7807be124a0a202dc7969
-      size: 213713
+      md5: d39d5b92bbd245102fd8e553b618a14b
+      size: 269834
     - path: src/train.py
       hash: md5
       md5: 249a8fae37e7dc9ff8ffd5b71969d6a0
@@ -46,39 +46,39 @@ stages:
     outs:
     - path: models/KNeighborsRegressor.joblib
       hash: md5
-      md5: ec5409e6b9d4307a8a1984f5264a4384
-      size: 7635286
+      md5: 595bf92748d4d450a9004869bebb00a5
+      size: 9875286
     - path: models/LinearRegression.joblib
       hash: md5
-      md5: 6194fceddc294c1fd12430be1bf2d2d5
+      md5: f8c2c20abf087d7ea211963716a97477
       size: 1072
     - path: models/RandomForestRegressor.joblib
       hash: md5
-      md5: e56fa0e6c84e54e1edc70d150e33347e
-      size: 306168385
+      md5: dcb89fc51732b9e0d239aa50840db675
+      size: 305909761
   evaluate:
     cmd: python src/evaluate.py
     deps:
     - path: data/x_test.csv
       hash: md5
-      md5: bbb3cac22fa52238cef4d5b9743ba196
-      size: 692414
+      md5: 608695b3e19cd2c835819b5f99e91975
+      size: 908265
     - path: data/y_test.csv
       hash: md5
-      md5: 1008ef045e957243c65545b7969ad56b
-      size: 91573
+      md5: 7003a179c28ae8e717133f4daa72573e
+      size: 115452
     - path: models/KNeighborsRegressor.joblib
       hash: md5
-      md5: ec5409e6b9d4307a8a1984f5264a4384
-      size: 7635286
+      md5: 595bf92748d4d450a9004869bebb00a5
+      size: 9875286
     - path: models/LinearRegression.joblib
       hash: md5
-      md5: 6194fceddc294c1fd12430be1bf2d2d5
+      md5: f8c2c20abf087d7ea211963716a97477
       size: 1072
     - path: models/RandomForestRegressor.joblib
       hash: md5
-      md5: e56fa0e6c84e54e1edc70d150e33347e
-      size: 306168385
+      md5: dcb89fc51732b9e0d239aa50840db675
+      size: 305909761
     - path: src/evaluate.py
       hash: md5
       md5: cff416ad878134034ca03c984af9ce4b
@@ -86,13 +86,13 @@ stages:
     outs:
     - path: scores/KNeighborsRegressor.json
       hash: md5
-      md5: f3d608daff1a08c150f1cd498c35e18c
+      md5: f1129bf04c29ed1aca9587675b4a35c6
       size: 88
     - path: scores/LinearRegression.json
       hash: md5
-      md5: 9fd75399bbc16cf10041b6edd2b4419a
+      md5: 28555f47bccd459f17d27cd2672a87d9
       size: 89
     - path: scores/RandomForestRegressor.json
       hash: md5
-      md5: a2d08047c320733423f91acac006e1d4
+      md5: 1b08e483eedeb51d038026499a3fc33b
       size: 88
